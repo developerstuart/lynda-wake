@@ -10,6 +10,7 @@ An 11ty-powered randomized image slideshow that displays images from your galler
 - 🔄 **Continuous Loop**: Images cycle automatically with configurable timing
 - 🎨 **Responsive Design**: Works on different screen sizes
 - 🏗️ **Build-time Generation**: Image list is generated from the filesystem during the build process
+- ⚡ **Automatic Image Optimization**: Images are automatically optimized and converted to modern formats (WebP, JPEG) with caching for fast rebuilds
 
 ## Setup
 
@@ -64,10 +65,16 @@ lynda-wake/
 ## How It Works
 
 1. During the 11ty build process, the `.eleventy.js` configuration reads all image files from `images/gallery/`
-2. The image list is passed to the template as a collection
-3. The JavaScript receives the image list and randomly shuffles it
-4. Images are displayed one by one with random positions and animations
-5. When the list is exhausted, it's reshuffled and the cycle continues
+2. **Image Optimization**: Raster images (PNG, JPG, GIF) are automatically optimized using `@11ty/eleventy-img`:
+   - Converted to modern formats (WebP and JPEG)
+   - Generated at multiple sizes (800px, 1200px, 1600px width)
+   - Compressed for optimal file size (80% quality)
+   - Cached to avoid re-processing on subsequent builds
+   - SVG files are copied as-is without optimization
+3. The image list is passed to the template as a collection
+4. The JavaScript receives the image list and randomly shuffles it
+5. Images are displayed one by one with random positions and animations
+6. When the list is exhausted, it's reshuffled and the cycle continues
 
 ## License
 

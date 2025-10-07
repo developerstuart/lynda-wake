@@ -8,6 +8,8 @@ body {
   background-color: #000;
   overflow: hidden;
   font-family: Arial, sans-serif;
+  background-image: url("../images/background.png");
+  background-size: cover;
 }
 
 #slideshow-container {
@@ -18,11 +20,14 @@ body {
 
 .slideshow-image {
   position: absolute;
-  max-width: 40vw;
-  max-height: 40vh;
+  max-width: 80vw;
+  max-height: 80vh;
   opacity: 0;
   transition: opacity 1s ease-in-out;
   object-fit: contain;
+  border: 10px solid white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
 }
 
 .slideshow-image.active {
@@ -54,8 +59,6 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  max-width: 60vw;
-  max-height: 60vh;
 }
 
 /* Slide-in animations */

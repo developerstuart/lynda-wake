@@ -1,0 +1,154 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+#slideshow-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.slideshow-image {
+  position: absolute;
+  max-width: 40vw;
+  max-height: 40vh;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  object-fit: contain;
+}
+
+.slideshow-image.active {
+  opacity: 1;
+}
+
+/* Position classes for corners and center */
+.pos-top-left {
+  top: 5%;
+  left: 5%;
+}
+
+.pos-top-right {
+  top: 5%;
+  right: 5%;
+}
+
+.pos-bottom-left {
+  bottom: 5%;
+  left: 5%;
+}
+
+.pos-bottom-right {
+  bottom: 5%;
+  right: 5%;
+}
+
+.pos-center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 60vw;
+  max-height: 60vh;
+}
+
+/* Slide-in animations */
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromTop {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromBottom {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.slide-in-left {
+  animation: slideInFromLeft 1s ease-out;
+}
+
+.slide-in-right {
+  animation: slideInFromRight 1s ease-out;
+}
+
+.slide-in-top {
+  animation: slideInFromTop 1s ease-out;
+}
+
+.slide-in-bottom {
+  animation: slideInFromBottom 1s ease-out;
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in;
+}
+
+/* Special handling for center position with transform */
+.pos-center.slide-in-left {
+  animation: slideInFromLeft 1s ease-out, fadeIn 1s ease-in;
+}
+
+.pos-center.slide-in-right {
+  animation: slideInFromRight 1s ease-out, fadeIn 1s ease-in;
+}
+
+.pos-center.slide-in-top {
+  animation: slideInFromTop 1s ease-out, fadeIn 1s ease-in;
+}
+
+.pos-center.slide-in-bottom {
+  animation: slideInFromBottom 1s ease-out, fadeIn 1s ease-in;
+}
+
+.pos-center.fade-in {
+  animation: fadeIn 1s ease-in;
+}

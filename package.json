@@ -1,0 +1,17 @@
+{
+  "name": "lynda-wake",
+  "version": "1.0.0",
+  "description": "11ty project that generates a randomized image slideshow",
+  "main": "index.js",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2"
+  }
+}

@@ -53,7 +53,7 @@ function displayImage(imageData) {
 
   // Create image element
   const img = document.createElement("img");
-  img.src = imageData.path;
+  img.src = imageData.path.replace(/^\//, ""); // Remove leading slash for relative path
   img.className = "slideshow-image";
   img.alt = imageData.filename;
 
